@@ -1,67 +1,3 @@
-# Gesture-controlled Timer
-**Project Type:** Embedded Systems Demonstration
-
-**Status:** Completed
-
-**Date:** September 2026
-
-
-
-## Table of Contents
-- [Overview](#overview)
-- [Components](#components)
-- [How It Works](#how-it-works)
-- [Assets](#assets)
-  - [Breadboard Diagram](#breadboard-diagram)
-  - [Circuit Diagram](#circuit-diagram)
-  - [Demonstration](#demonstration)
-  - [Source Code](#source-code)
-- [Key Takeaways](#key-takeaways)
-
-
-  
-## Overview
-A responsive electronic timer that utilizes specific specific input patterns from an ultrasonic sensor to toggle functions instead of traditional buttons.
-
-
-## Components
-* Arduino Uno
-* HC-SR04 Ultrasonic Distance Sensor
-* 16×2 I2C LCD
-* Passive Buzzer
-* 2 × 220Ω Resistors
-* Push Button
-* LED
-
-
-  
-## How It Works
-## How It Works
-
-The system operates as a timer controlled primarily through hand gestures detected by an HC-SR04 ultrasonic sensor. A latching push button serves as the manual power button and is the only way to toggle it on. Once powered on and unpaused, the timer starts from `00:00` and counts up to `59:59`, with the elapsed time displayed on the LCD.
-
-The HC-SR04 ultrasonic sensor continuously measures the distance of objects in front of it. The detection range is set to approximately 3-18 cm from the sensor. Different functions trigger depending on how long the hand remains within this range. A short hold of 0.25s pauses or resumes the timer, a 1.25s hold resets it, and a 2.25s switches the system off.
-
-A stage variable maintains the state of the most recently executed action during while a gesture is actively being made. Once the conditions for an action are met, the program advances to the next stage and prevents the same action from being repeatedly executed. If the gesture is maintained and the conditions for the next action are met, the program advances to the next stage and executes it. The stage resets when the gesture ends. The buzzer provides audible feedback whenever an action is registered.
-
-
-
-
-## Assets
-### Breadboard Diagram
-![Breadboard Diagram](<Assets/Breadboard Diagram.png>)
-
-### Circuit Diagram
-![Circuit Diagram](<Assets/Circuit Diagram.png>)
-
-### Demonstration
-![Image]()
-
-[Video]()
-
-### Source Code
-[Arduino Sketch](<Assets/GestureTimer/GestureTimer.ino>)
-```cpp
 #include <Wire.h> 
 #include <LiquidCrystal_I2C.h>
 #include <LCDGraph.h>
@@ -323,11 +259,3 @@ void beep(){
   delay(100);
   digitalWrite(BUZZER, LOW);
 } 
-```
-
-## Key Takeaways
-* Functions and state management are key to structuring larger programs for more complex systems.
-* Managing event timing and utilizing non-blocking delays increase the efficiency and responsiveness of the system.
-* Integrating multiple components might lead to interference between some of their operations. This has to be accounted for.
-* Sensors and programmed logic can be combined to form an alternative method of acquiring user input.
-* Filtering sensor readings helps reduce the effect of noise and prevents unintended system responses.

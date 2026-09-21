@@ -36,9 +36,8 @@ A responsive electronic timer that utilizes specific specific input patterns fro
 
   
 ## How It Works
-## How It Works
 
-The system operates as a timer controlled primarily through hand gestures detected by an HC-SR04 ultrasonic sensor. A latching push button serves as the manual power button and is the only way to toggle it on. Once powered on and unpaused, the timer starts from `00:00` and counts up to `59:59`, with the elapsed time displayed on the LCD.
+The system operates as a timer controlled primarily through hand gestures detected by an HC-SR04 ultrasonic sensor. A latching push button serves as the manual power button and is the only way to toggle it on. Once powered on and unpaused, the timer starts from 00:00 and counts up to 59:59, with the elapsed time displayed on the LCD.
 
 The HC-SR04 ultrasonic sensor continuously measures the distance of objects in front of it. The detection range is set to approximately 3-18 cm from the sensor. Different functions trigger depending on how long the hand remains within this range. A short hold of 0.25s pauses or resumes the timer, a 1.25s hold resets it, and a 2.25s switches the system off.
 
@@ -55,9 +54,9 @@ A stage variable maintains the state of the most recently executed action during
 ![Circuit Diagram](<Assets/Circuit Diagram.png>)
 
 ### Demonstration
-![Image]()
+![Image](<Assets/Image.png>)
 
-[Video]()
+[Video](<Assets/Demonstration.mp4>)
 
 ### Source Code
 [Arduino Sketch](<Assets/GestureTimer/GestureTimer.ino>)
